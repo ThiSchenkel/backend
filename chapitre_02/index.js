@@ -12,7 +12,7 @@ app.engine('handlebars', expressHandlebars());
 app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', { title: "Connection validée" });
 });
 
 app.get('/login', (req, res) => {
@@ -21,7 +21,10 @@ app.get('/login', (req, res) => {
 
 app.use(express.urlencoded({ extended: true }))
 app.post('/login', (req, res) => {
+    res.redirect('/');
     console.log(req.body);
-})
+});
+
+
 
 
