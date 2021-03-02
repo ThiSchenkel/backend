@@ -1,92 +1,83 @@
 const express = require('express');
-
 const app = express();
+
+const tableau = [
+    {
+        id: "1",
+        authors: "Lawrence Nowell , UK",
+        books: "Beowulf",
+    },
+    {
+        id: "2",
+        authors: "William Shakespeare, ",
+        books: "Hamlet, Othello, Romeo and Juliet, MacBeth",
+    },
+    {
+        id: "3",
+        authors: "Charles Dickens, US",
+        books: "Oliver Twist, A Christmas Carol",
+    },
+    {
+        id: "4",
+        authors: "Oscar Wilde, UK",
+        books: "The Picture of Dorian Gray, The Importance of Being Earnest",
+    }
+];
+
 app.listen(8000, () => {
     console.log('serveur lancé');
 });
 
-
-// Exercice 0
 app.get("/", (req, res) => {
-    console.log(req);
     res.send("Authors API");
 });
 
-
-//  Exercice 1
-app.get("/authors/1", (req, res) => {
-    res.send(`Lawrence Nowell, UK `);
-});
-
-app.get("/authors/2", (req, res) => {
-    res.send(`William Shakespeare, UK `);
-});
-
-app.get("/authors/3", (req, res) => {
-    res.send(`Charles Dickens, US `);
-});
-
-app.get("/authors/4", (req, res) => {
-    res.send(`Oscar Wilde, UK `);
-});
-
-
-
-
-
-
-
-
-//  Exercice 1
-// const tableau = [
-//     {
-//         id: 1,
-//         authors: "Lawrence Nowell , UK",
-//     },
-//     {
-//         id: 2,
-//         authors: "William Shakespeare, ",
-//     },
-//     {
-//         id: 3,
-//         authors: "Charles Dickens, US",
-//     },
-//     {
-//         id: 4,
-//         authors: "Oscar Wilde, UK",
-//     },
-// ];
-
-
 // app.get("/authors/:id", (req, res) => {
-
-//     const id = tableau.map((element) => {
-//         return element.authors;
-//     }); console.log(id.join(","))
-//     res.send(`${id.join(",")}`);
+//     switch (req.params.id) {
+//         case '1':
+//             res.send("Lawrence Nowell , UK")
+//             break;
+//         case '2':
+//             res.send("William Shakespeare, UK")
+//             break;
+//         case '3':
+//             res.send("Charles Dickens, US")
+//             break;
+//         case '4':
+//             res.send("Oscar Wilde, UK")
+//             break;
+//         default:
+//             res.send(`ERROR, this ID ${req.params.id} does not exist`)
+//     }
 // });
 
+// app.get("/authors/:id/books", (req, res) => {
+//     switch (req.params.id) {
+//         case '1':
+//             res.send("Beowulf")
+//             break;
+//         case '2':
+//             res.send("Hamlet, Othello, Romeo and Juliet, MacBeth")
+//             break;
+//         case '3':
+//             res.send("Oliver Twist, A Christmas Carol")
+//             break;
+//         case '4':
+//             res.send("The Picture of Dorian Gray, The Importance of Being Earnest")
+//             break;
+//     }
+// });
 
-// Exercice 2
-
-app.get("/authors/1/books", (req, res) => {
-    res.send(`Beowulf `);
+app.get("/json/authors/:id", (req, res) => {
+    res.send(tableau[req.params.id].authors)
 });
 
-app.get("/authors/2/books", (req, res) => {
-    res.send(`Hamlet, Othello, Romeo and Juliet, MacBeth `);
-});
-
-app.get("/authors/3/books", (req, res) => {
-    res.send(`Oliver Twist, A Christmas Carol `);
-});
-
-app.get("/authors/4/books", (req, res) => {
-    res.send(`The Picture of Dorian Gray, The Importance of Being Earnest `);
+app.get("/json/authors/:id/books", (req, res) => {
+    res.send(tableau[req.params.id].books)
 });
 
 app.get("*", (req, res) => {
-    res.send(`ERROR `);
+    res.send(`ERROR - PAGE NOT FOUND`);
 });
 
 
