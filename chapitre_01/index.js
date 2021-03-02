@@ -30,3 +30,64 @@ app.get("/authors/4", (req, res) => {
     res.send(`Oscar Wilde, UK `);
 });
 
+
+
+
+
+
+
+
+//  Exercice 1
+// const tableau = [
+//     {
+//         id: 1,
+//         authors: "Lawrence Nowell , UK",
+//     },
+//     {
+//         id: 2,
+//         authors: "William Shakespeare, ",
+//     },
+//     {
+//         id: 3,
+//         authors: "Charles Dickens, US",
+//     },
+//     {
+//         id: 4,
+//         authors: "Oscar Wilde, UK",
+//     },
+// ];
+
+
+// app.get("/authors/:id", (req, res) => {
+
+//     const id = tableau.map((element) => {
+//         return element.authors;
+//     }); console.log(id.join(","))
+//     res.send(`${id.join(",")}`);
+// });
+
+
+// Exercice 2
+
+app.get("/authors/1/books", (req, res) => {
+    res.send(`Beowulf `);
+});
+
+app.get("/authors/2/books", (req, res) => {
+    res.send(`Hamlet, Othello, Romeo and Juliet, MacBeth `);
+});
+
+app.get("/authors/3/books", (req, res) => {
+    res.send(`Oliver Twist, A Christmas Carol `);
+});
+
+app.get("/authors/4/books", (req, res) => {
+    res.send(`The Picture of Dorian Gray, The Importance of Being Earnest `);
+});
+
+app.get("*", (req, res) => {
+    res.send(`ERROR `);
+});
+
+
+
