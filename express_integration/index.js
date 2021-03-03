@@ -10,12 +10,11 @@ app.listen(port, () => {
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.use('/css', express.static('public/css'));
-app.use('/js', express.static('public/js'));
-app.use('/img', express.static('public/img'));
+app.use(express.static('public'));
 
 
-app.get('/', (req, res) => {
+
+app.get('/home', (req, res) => {
     res.render('home');
 });
 
