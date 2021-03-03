@@ -8,16 +8,102 @@
     <title>Cui'zine</title>
     <link href="https://fonts.googleapis.com/css?family=Courgette|Oswald:200,400" rel="stylesheet" />
     <link rel="stylesheet" href="/public/css/all.min.css" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/homepage.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
 </head>
 
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <h2><a class="navbar-brand" href="#">Cui'zine</a></h2>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Accueil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/team">Equipe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/post">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     {{{body}}}
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <h3>Catégories</h3>
+                    <ul>
+                        <li><a href="/page2">Revues</a></li>
+                        <li><a href="/recipe">Recettes</a></li>
+                        <li><a href="#">Découvertes</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h3>Archives</h3>
+                    <ul>
+                        <li><a href="#">2019</a></li>
+                        <li><a href="#">2018</a></li>
+                        <li><a href="#">2017</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="section">
+                        <h6>Newsletter</h6>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" placeholder="Email..." />
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                S'inscrire
+                            </button>
+                        </form>
+                    </div>
+                    <div class="section social-icons">
+                        <h6>Partager</h6>
+                        <ul>
+                            <li>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
 </body>
 
