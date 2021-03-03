@@ -19,9 +19,7 @@ app.get('/login', (req, res) => {
     res.render('login')
 });
 
-app.use(express.urlencoded({ extended: true }))
 app.post('/login', (req, res) => {
-    res.redirect('/');
     console.log(req.body);
 });
 

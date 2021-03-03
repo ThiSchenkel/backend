@@ -20,6 +20,3 @@ app.get('/:lang?', (req, res) => {
 
     res.render('home');
 });
-
-
-
