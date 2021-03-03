@@ -12,10 +12,8 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-
-
 app.get('/home', (req, res) => {
-    res.render('home');
+    res.render('home', { title: "Cui'zine" });
 });
 
 app.get('/team', (req, res) => {
