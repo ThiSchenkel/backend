@@ -11,18 +11,11 @@
             <label for="exampleInputPassword1">Votre mot de passe</label>
             <input name="password" type="password" class="form-control" id="exampleInputPassword1"
                 placeholder="Password">
+            {{#if passwordTooShort}}
+            <p>Votre mot de passe doit comporter 8 caractères</p>
+            {{/if}}
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        </div>
+
         <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
 </div>
-
-
-
-{{!-- <form method="post" action="/login">
-    <input name="username">
-    <input name="password">
-    <button>Login</button>
-</form> --}}
