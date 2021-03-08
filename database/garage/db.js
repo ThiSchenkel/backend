@@ -28,6 +28,20 @@ CarModel.deleteMany({}).then(() => {
             modele: '308',
             annee: 2017
         }
-    ).then(response => console.log(response))
+    )
         .catch(error => console.log(error));
-})
+});
+
+
+CarModel.findById('60464fa3aa1be0476427bdb8')
+    .then((response) => console.log(response));
+
+CarModel.updateOne(
+    {
+        _id
+            :
+            '60464fa3aa1be0476427bdb8'
+    },
+    { annee: 2000 }
+)
+    .then((response) => { console.log(response) });
