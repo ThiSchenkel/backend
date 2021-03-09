@@ -145,20 +145,25 @@ cityModel.deleteMany({}).then(() => {
 
 
 // 3. Triez ces infos par population : 
+// 1=>département le + peuplé
+// cityModel
+//     .aggregate()
+//     .group({
+//         _id: { departement: '$department' },
+//         population: { $sum: '$population' },
+//     })
+//     .sort({ population: -1 })
+//     .then((response) => console.log(response));
 
 // 2=>le département avec la population moyenne la + élevée
-
-// 1=>département le + peuplé
-cityModel
-    .aggregate()
-    .group({
-        _id: { departement: '$department' },
-        population: { $sum: '$population' },
-    })
-    .sort({ departement: { $max: '$population' } })
-    .then((response) => console.log(response));
-
-
+// cityModel
+//     .aggregate()
+//     .group({
+//         _id: { departement: '$department' },
+//         population: { $avg: '$population' },
+//     })
+//     .sort({ population: -1 })
+//     .then((response) => console.log(response));
 
 
 
@@ -174,13 +179,12 @@ cityModel
 
 
 
-
-
-// 5. Recuperer les mêmes infos mais uniquement pour les viles commencant par un P
-
-
-
-
+// 5. Recuperer les mêmes infos mais uniquement pour les villes commencant par un P
+cityModel
+    .aggregate()
+    .match({ city: /P/ })
+    .sort({ _id: { city: '$city' } })
+    .then((response) => console.log(response));
 
 
 // Bonus : Jouez avec les index et l'unicité des champs
