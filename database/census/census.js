@@ -122,11 +122,22 @@ cityModel.deleteMany({}).then(() => {
     // .then((response) => console.log(`Tableau : ${response}`));
 });
 
+
 //1. Affichez la population totale par département
 cityModel
     .aggregate()
     .group({
         _id: { departement: '$department' },
         population: { $sum: '$population' }
+    })
+    .then((response) => console.log(response));
+
+
+//2. Affichez la population moyenne par département
+cityModel
+    .aggregate()
+    .group({
+        _id: { departement: '$department' },
+        population: { $avg: '$population' }
     })
     .then((response) => console.log(response));
