@@ -182,7 +182,7 @@ cityModel.deleteMany({}).then(() => {
 // 5. Recuperer les mêmes infos mais uniquement pour les villes commencant par un P
 cityModel
     .aggregate()
-    .match({ city: /P/ })
+    .match({ city: { $regex: /^P/ } })
     .sort({ _id: { city: '$city' } })
     .then((response) => console.log(response));
 
