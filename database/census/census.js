@@ -1,3 +1,4 @@
+const { group } = require('console');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/census', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
@@ -117,12 +118,15 @@ const citySchema = new mongoose.Schema({
 const cityModel = mongoose.model('cities', citySchema);
 
 cityModel.deleteMany({}).then(() => {
-    cityModel.create(cities).then((response) => console.log(`Tableau : ${response}`));
+    cityModel.create(cities)
+    // .then((response) => console.log(`Tableau : ${response}`));
 });
 
-cityModel.aggregate()
-    .match({
-        department: { $department },
-        count: { $sum: 1 }
+//1. Affichez la population totale par département
+cityModel
+    .aggregate()
+    .group({
+        _id: { departement: '$department' },
+        population: { $sum: '$population' }
     })
     .then((response) => console.log(response));
