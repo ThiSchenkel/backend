@@ -124,20 +124,63 @@ cityModel.deleteMany({}).then(() => {
 
 
 //1. Affichez la population totale par département
-cityModel
-    .aggregate()
-    .group({
-        _id: { departement: '$department' },
-        population: { $sum: '$population' }
-    })
-    .then((response) => console.log(response));
+// cityModel
+//     .aggregate()
+//     .group({
+//         _id: { departement: '$department' },
+//         population: { $sum: '$population' }
+//     })
+//     .then((response) => console.log(response));
 
 
 //2. Affichez la population moyenne par département
+// cityModel
+//     .aggregate()
+//     .group({
+//         _id: { departement: '$department' },
+//         population: { $avg: '$population' }
+//     })
+//     .then((response) => console.log(response));
+
+
+
+// 3. Triez ces infos par population : 
+
+// 2=>le département avec la population moyenne la + élevée
+
+// 1=>département le + peuplé
 cityModel
     .aggregate()
     .group({
         _id: { departement: '$department' },
-        population: { $avg: '$population' }
+        population: { $sum: '$population' },
     })
+    .sort({ departement: { $max: '$population' } })
     .then((response) => console.log(response));
+
+
+
+
+
+//4. Comptez le nombre de ville par département
+// cityModel
+//     .aggregate()
+//     .group({
+//         _id: { departement: '$department' },
+//         nb_city: { $sum: 1 }
+//     })
+//     .sort({ nb_city: -1 })
+//     .then((response) => console.log(response));
+
+
+
+
+
+// 5. Recuperer les mêmes infos mais uniquement pour les viles commencant par un P
+
+
+
+
+
+
+// Bonus : Jouez avec les index et l'unicité des champs
