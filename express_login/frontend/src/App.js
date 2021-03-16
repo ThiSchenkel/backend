@@ -9,19 +9,25 @@ function App() {
 
     <BrowserRouter>
       <div className="container">
-        <h1>Express Login</h1>
-        <Link to='/'>Home</Link>
-        <Link to='/signup'>Signup</Link>
-        <Link to='/admin'>Admin</Link>
-        <Link to='/login'>Login</Link>
+        <div className='row'>
+          <div className='col-6'>
 
-        <Switch>
-          <Route exact path='/' />
-          <Route path='/signup' component={Signup} />
-          <Route path='/admin' component={Admin} />
-          <Route path='/login' component={Login} />
-        </Switch>
+          </div>
+          <h1>Express Login</h1>
+          <Link to='/'>Home</Link>
+          <Link to='/signup'>Signup</Link>
+          <Link to='/admin'>Admin</Link>
+          <Link to='/login'>Login</Link>
+        </div>
       </div>
+
+      <Switch>
+        <Route exact path='/' />
+        <Route path='/signup' component={Signup} />
+        <Route path='/admin' component={Admin} />
+        <Route path='/login' component={Login} />
+      </Switch>
+
     </BrowserRouter>
 
   );
