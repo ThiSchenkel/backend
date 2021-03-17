@@ -1,11 +1,11 @@
-import React from 'react';
 
-function Admin() {
+
+const Admin = () => {
     return (
         <div className="container">
             <h1>Admin</h1>
             <form>
-                <div class="mb-3">
+                <div className="mb-3">
                     <label>Firstname</label>
                     <input type="text" className="form-control" id="text" />
                 </div>

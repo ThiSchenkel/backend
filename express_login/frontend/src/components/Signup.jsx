@@ -1,38 +1,101 @@
-import React from 'react';
+import { useState } from 'react';
 
-function Signup() {
+const Signup = () => {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
+    const [firstName, setFirstName] = useState();
+    const [surName, setSurName] = useState();
+    const [birth, setBirth] = useState();
+
+    const addSignup = () => {
+        fetch('http://localhost:27017/express_login/users',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                    firstName: firstName,
+                    surName: surName,
+                    birth: birth
+                })
+            }).then((response) => {
+                console.log(response);
+                return response.json();
+
+            })
+    }
+
     return (
-
-        <div className="container">
+        <div className='container'>
             <h1>Signup</h1>
-            <form>
-                <div class="mb-3">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-                </div>
-                <div class="mb-3">
-                    <label>Password</label>
-                    <input type="password" className="form-control" id="password" />
-                </div>
-                <div class="mb-3">
-                    <label>Confirm Password</label>
-                    <input type="password" className="form-control" id="password" />
-                </div>
-                <div class="mb-3">
-                    <label>Firstname</label>
-                    <input type="text" className="form-control" id="text" />
-                </div>
-                <div class="mb-3">
-                    <label>Surname</label>
-                    <input type="text" className="form-control" id="text" />
-                </div>
-                <div class="mb-3">
-                    <label>Date of Birth</label>
-                    <input type="date" className="form-control" id="date" />
-                </div>
-                <button type="submit" className="btn btn-primary">Envoyer</button>
-            </form>
+            <div className="card" style={{ width: '50%' }}>
+                <form>
+                    <div className="mb-3">
+                        <label>Email address</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            value={email}
+                            onChange={((e) => setEmail(e.target.value))}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={password}
+                            onChange={((e) => setPassword(e.target.value))}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Confirm Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={confirmPassword}
+                            onChange={((e) => setConfirmPassword(e.target.value))}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Firstname</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={firstName}
+                            onChange={((e) => setFirstName(e.target.value))}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Surname</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={surName}
+                            onChange={((e) => setSurName(e.target.value))}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label>Date of Birth</label>
+                        <input
+                            type="date"
+                            className="form-control"
+                            value={birth}
+                            onChange={((e) => setBirth(e.target.value))}
+                        />
+                    </div>
+                    <button
+                        type="submit"
+                        className="btn btn-primary"
+                        onClick={addSignup}>Envoyer</button>
+                </form>
+            </div>
         </div>
+
     );
 }
 

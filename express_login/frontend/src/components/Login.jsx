@@ -1,12 +1,12 @@
-import React from 'react';
 
-function Login() {
+
+const Login = () => {
     return (
         <div className="container">
             <h1>Login</h1>
             <div className="container">
                 <form>
-                    <div class="mb-3">
+                    <div className="mb-3">
                         <label>Email address</label>
                         <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
                     </div>
@@ -20,5 +20,4 @@ function Login() {
         </div>
     );
 }
-
 export default Login;
