@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Admin from './components/Admin';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
+  useEffect(() => {
+    fetch('http://localhost:8000/users')
+      .then((response) => { return response.json() })
+      .then((response) => {
+        console.log(response);
+      })
+  }, [])
+
   return (
 
     <BrowserRouter>
@@ -23,14 +31,12 @@ function App() {
 
       <Switch>
         <Route exact path='/' />
-        <Route path='/signup' component={Signup} />
-        <Route path='/admin' component={Admin} />
-        <Route path='/login' component={Login} />
+        <Route path='/signup' ><Signup /></Route>
+        <Route path='/admin' ><Admin /></Route>
+        <Route path='/login' ><Login /></Route>
       </Switch>
-
     </BrowserRouter>
 
   );
 }
-
 export default App;

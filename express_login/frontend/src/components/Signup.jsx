@@ -9,7 +9,7 @@ const Signup = () => {
     const [birth, setBirth] = useState();
 
     const addSignup = () => {
-        fetch('http://localhost:27017/express_login/users',
+        fetch('http://localhost:8000/users',
             {
                 method: 'POST',
                 headers: {
@@ -82,7 +82,7 @@ const Signup = () => {
                     <div className="mb-3">
                         <label>Date of Birth</label>
                         <input
-                            type="date"
+                            type="text"
                             className="form-control"
                             value={birth}
                             onChange={((e) => setBirth(e.target.value))}
