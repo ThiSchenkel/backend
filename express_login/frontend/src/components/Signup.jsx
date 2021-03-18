@@ -9,15 +9,6 @@ const Signup = () => {
     const [surName, setSurName] = useState();
     const [birth, setBirth] = useState();
 
-
-    useEffect(() => {
-        fetch('http://localhost:8000/users')
-            .then((response) => { return response.json() })
-            .then((response) => {
-                console.log(response);
-            })
-    }, [])
-
     const addSignup = () => {
         fetch('http://localhost:8000/users',
             {

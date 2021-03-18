@@ -1,15 +1,4 @@
-import { useEffect } from 'react';
-
-
 const Admin = () => {
-
-    useEffect(() => {
-        fetch('http://localhost:8000/users')
-            .then((response) => { return response.json() })
-            .then((response) => {
-                console.log(response);
-            })
-    }, [])
 
     return (
         <div className="container">
