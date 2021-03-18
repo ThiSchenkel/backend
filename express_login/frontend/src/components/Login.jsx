@@ -1,5 +1,3 @@
-
-
 const Login = () => {
     return (
         <div className="container">
@@ -10,7 +8,7 @@ const Login = () => {
                         <label>Email address</label>
                         <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
                     </div>
-                    <div class="mb-3">
+                    <div className="mb-3">
                         <label>Password</label>
                         <input type="password" className="form-control" id="password" />
                     </div>
