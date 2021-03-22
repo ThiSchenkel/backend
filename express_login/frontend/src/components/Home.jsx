@@ -16,16 +16,16 @@ const Home = () => {
                     <h1>Express Login</h1>
                     <Link to='/'>Home</Link>
                     <Link to='/signup'>Signup</Link>
-                    <Link to='/admin'>Admin</Link>
                     <Link to='/login'>Login</Link>
+                    <Link to='/admin'>Admin</Link>
                 </div>
             </div>
 
             <Switch>
                 <Route exact path='/' />
                 <Route path='/signup' ><Signup /></Route>
-                <Route path='/admin' ><Admin /></Route>
                 <Route path='/login' ><Login /></Route>
+                <Route path='/admin' ><Admin /></Route>
             </Switch>
         </BrowserRouter>
     );

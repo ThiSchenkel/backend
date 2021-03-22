@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Route } from "react-router-dom";
+import Login from './Login';
 
 const Signup = () => {
 
@@ -9,8 +11,16 @@ const Signup = () => {
     const [surName, setSurName] = useState();
     const [birth, setBirth] = useState();
 
+    useEffect(() => {
+        fetch('http://localhost:8000/users')
+            .then((response) => { return response.json() })
+            .then((response) => {
+                console.log(response);
+            })
+    }, [])
+
     const addSignup = () => {
-        fetch('http://localhost:8000/users',
+        fetch('http://localhost:8000/signup',
             {
                 method: 'POST',
                 headers: {
@@ -19,17 +29,20 @@ const Signup = () => {
                 body: JSON.stringify({
                     email: email,
                     password: password,
-                    confirmPassword: confirmPassword,
                     firstName: firstName,
                     surName: surName,
                     birth: birth
                 })
             }).then((response) => {
-                console.log(response);
                 return response.json();
-            })
+            });
+        if (password.length < 8) {
+            return alert(`Votre mot de passe doit comporter minimum 8 caractères`);
+        }
+        else {
+            return (<Route path='/login' ><Login /></Route>);
+        }
     }
-
 
     return (
         <div className='container'>
@@ -84,7 +97,7 @@ const Signup = () => {
                     <div className="mb-3">
                         <label>Date of Birth</label>
                         <input
-                            type="text"
+                            type="date"
                             className="form-control"
                             value={birth}
                             onChange={((e) => setBirth(e.target.value))}
